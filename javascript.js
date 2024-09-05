@@ -1,10 +1,6 @@
 getRandomColor = () => {
-    let letters = '0123456789ABCDEF';
-    let color = '#';
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+    var o = Math.round, r = Math.random, s = 255;
+    return 'rgb(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) +')';
 }
 
 const container = document.querySelector('.container')
@@ -17,15 +13,18 @@ squareCreation = (numOfSquares,squareHeight) => {
         const div = document.createElement('div')
         div.classList.add('square')
         div.style.height = squareHeight+'%'
+        div.style.opacity = 1.0
     
         div.addEventListener('mouseover', () => {
             div.style.transition =  'none'
-            div.style.backgroundColor = 'blue'
+            div.style.backgroundColor = 'rgb(0,0,255)' 
         })
     
         div.addEventListener('mouseout', () => {
             div.style.transition =  'background-color 1s'
             div.style.backgroundColor = `${getRandomColor()}`
+            opacity = parseFloat(div.style.opacity) - 0.1
+            div.style.opacity = opacity
         })
         container.appendChild(div)
     }
