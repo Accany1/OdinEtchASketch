@@ -1,3 +1,12 @@
+getRandomColor = () => {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
 const container = document.querySelector('.container')
 let squaresPerSide = 16
 let squareHeight = 6.25
@@ -16,7 +25,8 @@ squareCreation = (numOfSquares,squareHeight) => {
     
         div.addEventListener('mouseout', () => {
             div.style.transition =  'background-color 1s'
-            div.style.backgroundColor = 'yellow'})
+            div.style.backgroundColor = `${getRandomColor()}`
+        })
         container.appendChild(div)
     }
 }

@@ -16,7 +16,7 @@ body {
 }
 
 .square {
-    background-color: yellow;
+    background-color: #111111;
     flex: 0 0 auto;
     padding: 0;
     margin: 0;
